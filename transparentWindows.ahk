@@ -22,7 +22,6 @@ checkColor := 0
 ctrlSave :=1
 
 topWinArray := Object()
-msgbox, transparentWindows starting up! get excited!!
 
 reloadScript(){
 	BlockInput Off
