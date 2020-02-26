@@ -22,12 +22,12 @@ checkColor := 0
 ctrlSave :=1
 
 topWinArray := Object()
-
+msgbox, transparentWindows starting up! get excited!!
 
 reloadScript(){
 	BlockInput Off
 		MsgBox, reloading transparentWindows.ahk
-		Reload, E:\Documents\GitHub\AHK\transparentWindows.ahk
+		Reload, transparentWindows.ahk
 }
 exitActiveWindow(){
 	WinGetTitle, Title, A
@@ -96,7 +96,7 @@ $!CapsLock:: send {CapsLock}
 
 enableSQLShortcuts() {
     ;MsgBox, enabling SQL shortcuts
-    run E:\Documents\GitHub\AHK\SQL_shortcuts.ahk
+    run SQL_shortcuts.ahk
 }
 
 !s::
