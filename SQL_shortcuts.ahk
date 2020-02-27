@@ -6,24 +6,38 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 
 
-         :*:create::CREATE
-          :*:alter::ALTER
-           :*:drop::DROP
-            :*:add::ADD
+        :*:create ::CREATE{Space}
+         :*:alter ::ALTER{Space}
+          :*:drop ::DROP{Space}
+           :*:add ::ADD{Space}
 
-         :*:select::SELECT
-           :*:from::FROM
+        :*:select ::SELECT{Space}
+          :*:from ::FROM{Space}
+        :*:concat(::CONCAT(
 
-    :*:insert into::INSERT INTO 
-         :*:values::VALUES
+   :*:insert into ::INSERT INTO{Space}
+        :*:values ::VALUES{Space}
 
-          :*:table::TABLE 
-         :*:column::COLUMN 
+         :*:table ::TABLE{Space}
+        :*:column ::COLUMN{Space}
 
     :*:primary key::PRIMARY KEY 
-       :*:eign key::EIGN KEY ; FOR translates the first part
+    :*:foreign key::FOREIGN KEY
      :*:constraint::CONSTRAINT 
      :*:references::REFERENCES 
+ :*:auto_increment::AUTO_INCREMENT
+ :*:auto increment::AUTO_INCREMENT
+
+          :*:join ::JOIN{Space}
+          :*:left ::LEFT{Space}
+         :*:right ::RIGHT{Space}
+         :*:inner ::INNER{Space}
+         :*:outer ::OUTER{Space}
+          :*:full ::FULL{Space}
+      :*:distinct ::DISTINCT{Space}
+
+        :*:exists ::EXISTS{Space}
+            :*:if ::IF{Space}
             :*:as ::AS{Space}
            :*:and ::AND{Space}
             :*:or ::OR{Space}
@@ -34,16 +48,30 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
          :*:where ::WHERE{Space}
        :*:between ::BETWEEN{Space}
          :*:check ::CHECK{Space}
+         :*:order ::ORDER{Space}
+         :*:group ::GROUP{Space}
+            :*:by ::BY{Space}
 
-           :*:null::NULL
-        :*:default::DEFAULT
+          :*:null ::NULL{Space}
+       :*:default ::DEFAULT{Space}
              :*:vc::VARCHAR
+        :*:varchar::VARCHAR
            :*:char::CHAR
-       :*:smallint::SMALLINT
-        :*:longint::LONGINT
-           :*:date::DATE
+           :*:int ::INT{Space}
+      :*:smallint ::SMALLINT{Space}
+       :*:longint ::LONGINT{Space}
+          :*:date ::DATE{Space}
 
+;aggregate functions
 
+          :*:avg(::AVG(     ;'average'  : AVG(table.attribute) returns the average of the tables attribute
+        :*:count(::COUNT(   ;'count'    : COUNT(table.attribute) number of times that attribute appears IN the table
+          :*:max(::MAX(
+          :*:min(::MIN(
+          :*:sum(::SUM(
+        :*:ucase(::UCASE(   ;'upper case'
+        :*:lcase(::LCASE(   ;'loser case'
+          
 
 
 :*:""::""{Left}
