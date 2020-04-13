@@ -117,8 +117,10 @@ getWinClass() {
 Return
 
 
+:*:ahk_projectPrologueTemplate()::
+	send, /*{enter} * Project Prologue {enter}* Name: Andrew Ahlstrom {enter}* CS3450 section 001 {enter}* Project: __EMPTY__{enter}* Date: __DAY__.__MONTH__.2020 {enter}* {enter}* Purpose: __EMPTY__ {enter}* {enter}*/{enter}
 
-
+return
 
 
 ; -------------------------------------------------------------------
