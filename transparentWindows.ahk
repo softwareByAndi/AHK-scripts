@@ -433,8 +433,18 @@ Return
 	send, SFX: (){space}
 return
 
-:*:IDKemoji::
+:*:ahk_emoji_IDK::
 	send, ¯\_(ツ)_/¯
+return
+
+$!-::
+	send, –
+return
+:*:theta*::
+	send, {backspace}θ
+return
+:*:about*::
+	send, ≈
 return
 
 +^=::                                        ; Hotkey is Shift + Control + =    - Transparency 0
