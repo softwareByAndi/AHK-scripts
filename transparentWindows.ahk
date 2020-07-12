@@ -446,6 +446,13 @@ return
 :*:about*::
 	send, ≈
 return
+:*:mew*::
+	send, μ
+return
+:*:stdev*::
+	send, σ
+return
+
 
 +^=::                                        ; Hotkey is Shift + Control + =    - Transparency 0
 WinSet, Transparent, 0, A   ; the active window
