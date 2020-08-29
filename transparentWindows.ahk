@@ -440,19 +440,75 @@ return
 $!-::
 	send, –
 return
+:*:approx*::
+	send, ≈
+return
 :*:theta*::
 	send, {backspace}θ
 return
-:*:about*::
-	send, ≈
+:*:theta!*::
+	send, {backspace}Θ
+return
+:*:epsilon*::
+	send, {backspace}ε
+return
+:*:eta*::
+	send, {backspace}η
+return
+:*:xi*::
+	send, {backspace}ξ
+return
+:*:xi!*::
+	send, {backspace}Ξ
 return
 :*:mew*::
-	send, μ
+	send, {backspace}μ
 return
-:*:stdev*::
-	send, σ
+:*:sigma*::
+	send, {backspace}σ
 return
-
+:*:sigma!*::
+	send, {backspace}Σ
+return
+:*:delta*::
+	send, {backspace}δ
+return
+:*:delta!*::
+	send, {backspace}∆
+return
+:*:omega*::
+	send, {backspace}ω
+return
+:*:omega!*::
+	send, {backspace}Ω
+return
+:*:tau*::
+	send, {backspace}τ
+return
+:*:alpha*::
+	send, {backspace}α
+return
+:*:beta*::
+	send, {backspace}β
+return
+:*:pi*::
+	send, {backspace}π
+return
+:*:phi*::
+	send, {backspace}φ
+return
+:*:phi!*::
+	send, {backspace}Φ
+return
+:*:rho*::
+	send, {backspace}ρ
+return
+:*:lambda*::
+	send, {backspace}λ
+return
+:*:lambda!*::
+	send, {backspace}Λ
+return
 
 +^=::                                        ; Hotkey is Shift + Control + =    - Transparency 0
 WinSet, Transparent, 0, A   ; the active window
