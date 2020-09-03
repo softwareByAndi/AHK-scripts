@@ -59,12 +59,18 @@ ToolTipFM(Text="", WhichToolTip=16, xOffset=16, yOffset=16) { ; ToolTip which Fo
 
 
 loop {
-     ToolTipFM("discord.ahk")
+     ToolTipFM("a tool tip that follows the mouse") ; change this text
      sleep, 20
      ; ToolTip("")
 }
 
-
-;$!q::
-;  exitApp
-;return
+; How to add ToolTipFM to script:
+; copy this file & change the text you wish to display
+; right click on file and select "compile script"
+; add the following to the ahk script you wish to display this tooltip:
+;     run, __ToolTipFM_FileName__.exe
+;     $!q::
+;       process, close, __ToolTipFM_FileName__.exe
+;       exitApp
+;     return
+ 

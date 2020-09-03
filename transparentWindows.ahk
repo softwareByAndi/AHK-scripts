@@ -97,7 +97,10 @@ enableDiscordHotKeys() {
     ;MsgBox, enabling discord hotkeys
     run discord_hotkeys.ahk
 }
-
+enablePrologueHotKeys() {
+    ;MsgBox, enabling discord hotkeys
+    run class_prologues_hotkeys.ahk
+}
 enableSQLShortcuts() {
     ;MsgBox, enabling SQL shortcuts
     run SQL_shortcuts.ahk
@@ -106,7 +109,9 @@ enableSQLShortcuts() {
 $!d::          ; enable discord hotkeys
     enableDiscordHotKeys()
 return
-
+$!p::          ; enable school assignment prologue hotkeys
+    enablePrologueHotKeys()
+return
 $!s::
     enableSQLShortcuts()
 return
@@ -115,9 +120,11 @@ return
 :*:ahk_enable(sql)::
     enableSQLShortcuts()
 return
-
 :*:ahk_enable(discord)::
-    enableSQLShortcuts()
+    enableDiscordHotKeys()
+return
+:*:ahk_enable(prologue)::
+    enablePrologueHotKeys()
 return
 
 
