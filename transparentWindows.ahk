@@ -112,6 +112,9 @@ return
 $!p::          ; enable school assignment prologue hotkeys
     enablePrologueHotKeys()
 return
+$!h::          ; enable hot strings
+    run hot_strings.ahk
+return
 $!s::
     enableSQLShortcuts()
 return
