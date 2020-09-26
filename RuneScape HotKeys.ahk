@@ -581,12 +581,10 @@ writeToNotepad(text) {
 
 
 +^a::
-	
 	MouseGetPos, OVX, OVY
 	writeToNotepad("{tab}{tab}RSClick(" . OVX . ", " . OVY . ", 100){enter}")
 Return
 +^c::
-	
 	MouseGetPos, OVX, OVY
 	writeToNotepad("{tab}{tab}RSInputClick(" . OVX . ", " . OVY . ", 1000, EnterTextHere , 500)")
 Return
@@ -2604,7 +2602,7 @@ mine_iron(numloop, extra := "drop") {
 }
 
 
-:*:asdf mine iron::
+:*:ahk mine iron::
 	inputbox, numloop, Mining right down , number of loops?
 	mine_iron(numloop, "drop")
 Return

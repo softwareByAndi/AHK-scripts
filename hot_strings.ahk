@@ -10,10 +10,15 @@ run, hot_strings_tooltip.exe
 
 :*:sov::
  send, {{} {enter}
+ sleep, 200
  send, "subject-phrase": "",{enter}
+ sleep, 50
  send, "verb-phrase": "",{enter}
+ sleep, 50
  send, "object-phrase": "",{enter}
+ sleep, 50
  send, "prep-phrase": ""{enter}
+ sleep, 50
  send, {backspace}{}}{shift down}{down}{shift up}{delete}
 return
 
@@ -26,12 +31,18 @@ return
 
 :*:prep::
  send, {{} {enter}
+ sleep, 200
  send, "prep": "", {enter}
+ sleep, 50
  send, "secondary-prep-phrase": {{}{enter}
+ sleep, 200
  
  send, "subject-phrase": "",{enter}
+ sleep, 50
  send, "verb-phrase": "",{enter}
+ sleep, 50
  send, "object-phrase": "",{enter}
+ sleep, 50
  send, "prep-phrase": ""
 return
 

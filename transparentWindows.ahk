@@ -7,6 +7,9 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #InstallMouseHook
 
 
+run auto_load_programs.ahk
+
+
 winID := 0
 winID_2 := 0
 winT := 255
