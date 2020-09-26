@@ -4,10 +4,19 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
 
-mine_bool := 0
 
+
+mine_bool := 0
 dropWait := 200
 mineWait := 2500
+heightSquare := 180
+widthSquare := 200
+heightItem := 35
+widthItem := 42
+clickX := 0
+clickY := 0
+
+
 
 
 reloadScript(){
@@ -19,17 +28,6 @@ reloadScript(){
 $!r::
   reloadScript()
   return
-
-getClickLocation(){
-	MouseGetPos, OVX, OVY
-	writeToNotepad("RSClick(" . OVX . ", " . OVY . ", 100){enter}")
-}
-
-writeToNotepad(text) {
-	winactivate, Untitled - Notepad
-	WinWaitActive, Untitled - Notepad
-				send, %text%
-}
 
 RSClick(rsX, rsY, sleeperTime)
 {
@@ -48,23 +46,29 @@ $+!^x::
   return
 
 
-click_UP(sleeperTime){
-  RSClick(1000, 375, 0)  ; UP
-  sleep, %sleeperTime%
-}
-click_DOWN(sleeperTime){
-  RSClick(1000, 850, 0)  ; DOWN
-  sleep, %sleeperTime%
-}
-click_LEFT(sleeperTime){
-  RSClick(760, 600, 0)   ; LEFT
-  sleep, %sleeperTime%
-}
-click_RIGHT(sleeperTime){
-  RSClick(1250, 600, 0)   ; RIGHT
-  sleep, %sleeperTime%
-}
 
+
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+;     MAIN HOTKEYS
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+
+:*:ahk mine::
+  mine()
+  return
+
+:*:test::
+  WinGetPos, posX, posY, width, height, A
+  send, x: %width%  y: %height%
+  return
+
+
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+;     MAIN FUNCTIONS
+;------------------------------------------------------------------
+;------------------------------------------------------------------
 
 mine() {
   Loop
@@ -98,6 +102,301 @@ mine() {
   }
 }
 
-:*:ahk mine::
-  mine()
-  return
+
+
+
+
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+;     mouse position adjustment functions
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+    getRSCenter() {
+      global
+      WinGetPos, posX, posY, width, height, A
+      clickX := width / 2
+      clickY := (height / 2) + (heightSquare / 2)
+      return
+    }
+    UP(){
+      global
+      clickY := (clickY - heightSquare)
+    }
+    DOWN() {
+      global
+      clickY := (clickY + heightSquare - 25)
+    }
+    LEFT() {
+      global
+      clickX := (clickX - widthSquare)
+    }
+    RIGHT() {
+      global
+      clickX := (clickX + widthSquare)
+    }
+
+    ROW1() {
+      global
+      clickX := 
+    }
+
+
+    getRSFirstItem() {
+      global
+      WinGetPos, posX, posY, width, height, A
+      clickY := (height - 68 - (heightItem * 6))
+      clickX := (width - 45 - (widthItem * 3))
+      return
+    }
+    ITEM_DOWN() {
+      global
+      clickY := clickY + heightItem
+    }
+    ITEM_RIGHT() {
+      global
+      clickX := clickX + widthItem
+    }
+
+
+
+
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+;     RS map click functions
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+
+  ;------------------------------------------------------------------
+  ;     1 square
+  ;------------------------------------------------------------------
+
+    click_UP(sleeperTime) {
+      global
+      getRSCenter()
+      UP()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_DOWN(sleeperTime){
+      global
+      getRSCenter()
+      DOWN()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+
+
+    click_UP_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_UP_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_DOWN_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      DOWN()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_DOWN_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      DOWN()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+
+  ;------------------------------------------------------------------
+  ;   2 square
+  ;------------------------------------------------------------------
+
+    click_UP_UP(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      UP()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_LEFT_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      LEFT()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_RIGHT_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      RIGHT()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+
+    click_UP_RIGHT_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      RIGHT()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_UP_LEFT_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      LEFT()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+
+    click_UP_UP_RIGHT_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      UP()
+      RIGHT()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_UP_UP_LEFT_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      UP()
+      LEFT()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+
+    click_UP_UP_RIGHT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      UP()
+      RIGHT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+    click_UP_UP_LEFT(sleeperTime){
+      global
+      getRSCenter()
+      UP()
+      UP()
+      LEFT()
+      Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
+      return
+    }
+
+
+
+
+    
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+;     RS item click functions
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+
+    ITEM_1_1(){
+      getRSFirstItem()
+    }
+    ITEM_1_2(){
+      getRSFirstItem()
+    }
+    ITEM_1_3(){
+      getRSFirstItem()
+    }
+    ITEM_1_4(){
+      getRSFirstItem()
+    }
+
+    
+    ITEM_1_1(){
+      getRSFirstItem()
+    }
+    ITEM_1_2(){
+      getRSFirstItem()
+    }
+    ITEM_1_3(){
+      getRSFirstItem()
+    }
+    ITEM_1_4(){
+      getRSFirstItem()
+    }
+    
+    ITEM_1_1(){
+      getRSFirstItem()
+    }
+    ITEM_1_2(){
+      getRSFirstItem()
+    }
+    ITEM_1_3(){
+      getRSFirstItem()
+    }
+    ITEM_1_4(){
+      getRSFirstItem()
+    }
+    
+    ITEM_1_1(){
+      getRSFirstItem()
+    }
+    ITEM_1_2(){
+      getRSFirstItem()
+    }
+    ITEM_1_3(){
+      getRSFirstItem()
+    }
+    ITEM_1_4(){
+      getRSFirstItem()
+    }
