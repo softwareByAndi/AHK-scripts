@@ -28,6 +28,7 @@ reloadScript(){
 }
 
 $!r::
+  Send {shift up}
   reloadScript()
   return
 
@@ -61,13 +62,16 @@ $+!^x::
   return
 
 :*:test1::
-  SELECT_ITEM(1, 1)
+  DROP_ITEM(1, 1, 200)
+  DROP_ITEM(1, 2, 200)
+  DROP_ITEM(1, 3, 200)
+  DROP_ITEM(1, 4, 200)
   return
 :*:test2::
-  SELECT_ITEM(4, 1)
+  SELECT_ITEM(4, 1, 200)
   return
 :*:test3::
-  SELECT_ITEM(7, 1)
+  SELECT_ITEM(7, 1, 200)
   return
 
 
@@ -85,8 +89,8 @@ mine() {
       click_UP(3800)
       click_RIGHT(3300)
 
-      DROP_ITEM(1,1)
-      DROP_ITEM(1,2)
+      DROP_ITEM(1,1, 200)
+      DROP_ITEM(1,2, 200)
     }
   }
 }
@@ -158,7 +162,7 @@ mine() {
 ;------------------------------------------------------------------
 ;------------------------------------------------------------------
 
-    SELECT_ITEM(row, col) {
+    SELECT_ITEM(row, col, sleeperTime) {
       global
       row := row - 1
       col := col - 1
@@ -172,14 +176,16 @@ mine() {
       }
 
       Send {Click, %clickX%, %clickY%}
+      sleep, %sleeperTime%
       return
     }
 
-    DROP_ITEM(row, col) {
+    DROP_ITEM(row, col, sleeperTime) {
       global
       Send {shift down}
-        SELECT_ITEM(row, col)
+        SELECT_ITEM(row, col, 0)
       Send {shift up}
+      sleep, %sleeperTime%
       return
     }
 
