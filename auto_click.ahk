@@ -19,6 +19,7 @@ clickX := 0
 clickY := 0
 
 
+initializeGlobals_Desktop()
 
 
 reloadScript(){
@@ -48,6 +49,14 @@ $+!^x::
   ToolTip
   return
 
+initializeGlobals_Desktop(){
+  global
+  WinGetPos, posX, posY, width, height, A
+
+  heightSquare := height / 4.5
+  widthSquare := width / 8
+  return
+}
 
 
 
@@ -61,17 +70,41 @@ $+!^x::
   mine()
   return
 
+:*:up::
+  click_UP_UP(0)
+  return
+:*:down::
+  click_DOWN(0)
+  return
+:*:right::
+  click_RIGHT_RIGHT(0)
+  return
+:*:left::
+  click_LEFT_LEFT(0)
+  return
+:*:ul::
+  click_UP_UP_LEFT_LEFT(0)
+  return
+:*:ur::
+  click_UP_UP_RIGHT_RIGHT(0)
+  return
+
+
+
 :*:test1::
-  DROP_ITEM(1, 1, 200)
-  DROP_ITEM(1, 2, 200)
-  DROP_ITEM(1, 3, 200)
-  DROP_ITEM(1, 4, 200)
+  click_DOWN_RIGHT(3000)
+  click_UP_LEFT(3000)
+  click_DOWN_LEFT(3000)
+  click_UP_RIGHT(3000)
   return
 :*:test2::
-  SELECT_ITEM(4, 1, 200)
+  SELECT_ITEM(1, 1, 200)
   return
 :*:test3::
-  SELECT_ITEM(7, 1, 200)
+  SELECT_ITEM(1, 1, 200)
+  SELECT_ITEM(2, 2, 200)
+  SELECT_ITEM(4, 3, 200)
+  SELECT_ITEM(7, 3, 200)
   return
 
 
