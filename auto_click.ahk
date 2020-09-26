@@ -11,8 +11,10 @@ dropWait := 200
 mineWait := 2500
 heightSquare := 180
 widthSquare := 200
-heightItem := 35
+heightItem := 36
 widthItem := 42
+itemOffsetX := 45
+itemOffsetY := 70
 clickX := 0
 clickY := 0
 
@@ -58,9 +60,14 @@ $+!^x::
   mine()
   return
 
-:*:test::
-  WinGetPos, posX, posY, width, height, A
-  send, x: %width%  y: %height%
+:*:test1::
+  SELECT_ITEM(1, 1)
+  return
+:*:test2::
+  SELECT_ITEM(4, 1)
+  return
+:*:test3::
+  SELECT_ITEM(7, 1)
   return
 
 
@@ -77,28 +84,10 @@ mine() {
     {
       click_UP(3800)
       click_RIGHT(3300)
-      send, {shift down}
-        RSClick(1765, 850, 200)
-        RSClick(1808, 850, 200)
-      send, {shift up}
+
+      DROP_ITEM(1,1)
+      DROP_ITEM(1,2)
     }
-    
-    ;send, {shift down}
-    ;RSClick(1765, 850, 200) ;2:1
-    ;RSClick(1808, 850, 200) ;2:2
-    ;RSClick(1850, 850, 200) ;2:3
-    ;RSClick(1890, 850, 200) ;2:4
-
-    ;RSClick(1765, 888, 200) ;3:1
-    ;RSClick(1808, 888, 200) ;3:2
-    ;RSClick(1850, 888, 200) ;3:3
-    ;RSClick(1890, 888, 200) ;3:4
-
-    ;RSClick(1765, 925, 200) ;4:1
-    ;RSClick(1808, 925, 200) ;4:2
-    ;RSClick(1850, 925, 200) ;4:3
-    ;RSClick(1890, 925, 200) ;4:4
-    ;send, {shift up}
   }
 }
 
@@ -144,20 +133,55 @@ mine() {
     getRSFirstItem() {
       global
       WinGetPos, posX, posY, width, height, A
-      clickY := (height - 68 - (heightItem * 6))
-      clickX := (width - 45 - (widthItem * 3))
+      clickY := (height - itemOffsetY - (heightItem * 6))
+      clickX := (width - itemOffsetX - (widthItem * 3))
       return
     }
     ITEM_DOWN() {
       global
       clickY := clickY + heightItem
+      return
     }
     ITEM_RIGHT() {
       global
       clickX := clickX + widthItem
+      return
     }
 
 
+
+
+    
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+;     RS item click functions
+;------------------------------------------------------------------
+;------------------------------------------------------------------
+
+    SELECT_ITEM(row, col) {
+      global
+      row := row - 1
+      col := col - 1
+
+      getRSFirstItem()
+      Loop %row% {
+        ITEM_DOWN()
+      }
+      Loop %col% {
+        ITEM_RIGHT()
+      }
+
+      Send {Click, %clickX%, %clickY%}
+      return
+    }
+
+    DROP_ITEM(row, col) {
+      global
+      Send {shift down}
+        SELECT_ITEM(row, col)
+      Send {shift up}
+      return
+    }
 
 
 ;------------------------------------------------------------------
@@ -340,63 +364,3 @@ mine() {
 
 
 
-
-    
-;------------------------------------------------------------------
-;------------------------------------------------------------------
-;     RS item click functions
-;------------------------------------------------------------------
-;------------------------------------------------------------------
-
-    ITEM_1_1(){
-      getRSFirstItem()
-    }
-    ITEM_1_2(){
-      getRSFirstItem()
-    }
-    ITEM_1_3(){
-      getRSFirstItem()
-    }
-    ITEM_1_4(){
-      getRSFirstItem()
-    }
-
-    
-    ITEM_1_1(){
-      getRSFirstItem()
-    }
-    ITEM_1_2(){
-      getRSFirstItem()
-    }
-    ITEM_1_3(){
-      getRSFirstItem()
-    }
-    ITEM_1_4(){
-      getRSFirstItem()
-    }
-    
-    ITEM_1_1(){
-      getRSFirstItem()
-    }
-    ITEM_1_2(){
-      getRSFirstItem()
-    }
-    ITEM_1_3(){
-      getRSFirstItem()
-    }
-    ITEM_1_4(){
-      getRSFirstItem()
-    }
-    
-    ITEM_1_1(){
-      getRSFirstItem()
-    }
-    ITEM_1_2(){
-      getRSFirstItem()
-    }
-    ITEM_1_3(){
-      getRSFirstItem()
-    }
-    ITEM_1_4(){
-      getRSFirstItem()
-    }
