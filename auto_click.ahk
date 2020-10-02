@@ -28,7 +28,7 @@ reloadScript(){
 		Reload, auto_click.ahk
 }
 
-!o::Pause
+!o::Suspend
 
 $!r::
   Send {shift up}
@@ -51,6 +51,10 @@ $+!^x::
   send, % "Send, {{}Click, " x ", " y "{}}"
   send, {enter}
   send, % "sleep, 1000"
+  send, {enter}
+  sleep, 1000
+
+  send, {alt down} {tab} {alt up}
   return
 
 initializeGlobals_Desktop(){
@@ -99,9 +103,29 @@ initializeGlobals_Desktop(){
   high_alch(remainder)  
   return
 
+:*:ahk smith::
+  InputBox, numItems, "smith iron", "how many items?"
+  sleep, 500
+
+  numInventory := 27
+  numLoops := numItems / numInventory
+  numLoops := Floor(numLoops)
+  remainder := Mod(numItems, numInventory)
+
+  SMITH_MEDHELM()
+
+  Loop %numLoops% {
+      ; auto smithing loop
+    GET_INGOTS_FROM_BANK()
+    SMITH_MEDHELM()
+  }
+
+
+  return
 
 :*:test::
-    Send, {Click, 736, 74}
+    SMITH_MEDHELM()
+    GET_INGOTS_FROM_BANK()
   return
 
 
@@ -138,6 +162,17 @@ high_alch(numLoop) {
   }
 }
 
+varrock_smith_medhelms() {
+  global
+  
+  loop {
+    GET_INGOTS_FROM_BANK()
+    SMITH_MEDHELM()
+  }
+
+
+
+}
 
 
 
@@ -170,10 +205,6 @@ high_alch(numLoop) {
       clickX := (clickX + widthSquare)
     }
 
-    ROW1() {
-      global
-      clickX := 
-    }
 
 
     getRSFirstItem() {
@@ -204,6 +235,39 @@ high_alch(numLoop) {
 ;------------------------------------------------------------------
 ;------------------------------------------------------------------
 
+    GET_INGOTS_FROM_BANK(){
+        ; open bank
+      Send, {Click, 911, 294}
+      sleep, 5000
+
+      SELECT_ITEM(1, 2, 1000)
+
+        ; select tab
+      Send, {Click, 923, 116}
+      sleep, 500
+
+        ; select ingot
+      Send, {Click, 687, 155}
+      sleep, 1000
+
+        ; exit bank
+      Send, {Click, 1085, 81}
+      sleep, 1000
+    }
+
+    SMITH_MEDHELM() {
+        ; select anvil
+      Send, {Click, 1097, 917}
+      sleep, 5000
+
+        ; select medhelm
+      Send, {Click, 879, 355}
+      sleep, 85000
+
+      ; ----------------------------
+
+      
+    }
 
     SELECT_FIRST_ITEM_FROM_BANK() {
         ; open bank
