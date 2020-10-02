@@ -53,7 +53,6 @@ $+!^x::
   send, % "sleep, 1000"
   send, {enter}
   send, {enter}
-
   sleep, 1000
 
   send, {alt down} {tab} {alt up}
@@ -285,6 +284,8 @@ varrock_smith_medhelms() {
 
     SELECT_HIGH_ALCH(i_row, i_col) {
       global
+
+        ; set high alch icon position
       ha_row := 3
       ha_col := 3
 
@@ -299,10 +300,29 @@ varrock_smith_medhelms() {
       clickX := clickX + 15
       clickY := clickY - 15
 
+
+        ; click backpack icon
+      Send, {Click, 1615, 1037}
+      sleep, 1000
+
+        ; click magic book icon
+      Send, {Click, 1715, 1039}
+      sleep, 1000
+
+        ; click high_alch icon
       Send {Click, %clickX%, %clickY%}
       sleep, 300
 
-      SELECT_ITEM(i_row, i_col, 3000)
+      SELECT_ITEM(i_row, i_col, 500)
+
+        ; first confirmation
+      Send, {Click, 308, 1004}
+      sleep, 500
+
+        ; second confirmation
+      Send, {Click, 312, 959}
+      sleep, 2000
+
       return
     }
 
