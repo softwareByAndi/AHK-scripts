@@ -28,16 +28,27 @@ reloadScript(){
 		Reload, auto_click.ahk
 }
 
-!o::Suspend
+$!o::
+  Pause
+  return
+$^o::
+  Suspend
+  return
 
 $!r::
   Send {shift up}
   reloadScript()
   return
 
-RSClick(rsX, rsY, sleeperTime)
+SingleClick(rsX, rsY, sleeperTime)
 {
-		; send click and input to RS
+	Send {Click, %rsX%, %rsY%}
+	sleep, %sleeperTime%
+}
+
+DoubleClick(rsX, rsY, sleeperTime) {
+	Send {Click, %rsX%, %rsY%}
+  sleep, 250
 	Send {Click, %rsX%, %rsY%}
 	sleep, %sleeperTime%
 }
@@ -48,11 +59,8 @@ $+!^x::
   send, {alt down} {tab} {alt up}
   sleep, 1000
 
-  send, % "Send, {{}Click, " x ", " y "{}}"
+  send, % "SingleClick(" x ", " y ", 1000)"
   send, {enter}
-  send, % "sleep, 1000"
-  ;send, {enter}
-  ;send, {enter}
   sleep, 1000
 
   ;send, {alt down} {tab} {alt up}
@@ -120,13 +128,34 @@ initializeGlobals_Desktop(){
     GET_INGOTS_FROM_BANK()
     SMITH_MEDHELM()
   }
-
-
   return
+
+:*:ahk mining guild coal::
+  Loop {
+    mining_guild_coal()
+  }
+  return
+
+:*:ahk mining guild iron::
+  Loop {
+    mining_guild_iron()
+  }
+  return
+
 
 :*:test::
   WinGetPos, posX, posY, width, height, A
   send, % height ", " width
+  return
+
+:*:align_1::
+  MouseMove, 386, 716
+  return
+:*:align_2::
+  MouseMove, 965, 792
+  return
+:*:align_3::
+  MouseMove, 1397, 350
   return
 
 
@@ -172,11 +201,68 @@ varrock_smith_medhelms() {
     GET_INGOTS_FROM_BANK()
     SMITH_MEDHELM()
   }
-
-
-
 }
 
+
+mining_guild_coal() {
+    ; climb down mining shaft
+  SingleClick(386, 716, 30000)
+
+      ; mine enter
+    SingleClick(965, 1024, 10000)
+    SingleClick(1008, 684, 12000)
+    DoubleClick(873, 647, 12000) ; 7
+    DoubleClick(931, 644, 12000) ; 8
+    DoubleClick(1062, 573, 12000) ; 9
+    DoubleClick(974, 614, 12000) ; 10
+
+      ; work the square
+    loop 6 {
+      DoubleClick(935, 473, 10000) ; top
+      DoubleClick(928, 568, 10000) ; left
+      DoubleClick(1029, 551, 10000) ; right
+      DoubleClick(971, 612, 10000) ; bottom
+    }
+
+      ; return route
+    DoubleClick(1025, 420, 12000)
+    DoubleClick(971, 384, 12000)
+  
+    ; exit mine
+  DoubleClick(885, 250, 10000)
+    ; go to bank
+  SingleClick(1397, 350, 30000)
+    ; empty inventory
+  SingleClick(1040, 837, 1000)
+    ; exit bank
+  SingleClick(1086, 81, 1000)
+}
+
+
+mining_guild_iron() {
+    ; climb down mining shaft
+  SingleClick(1660, 944, 16500)
+  SingleClick(582, 754, 14000)
+
+      ; mine enter
+    SingleClick(1374, 585, 10000)
+
+    loop 7{
+      DoubleClick(971, 582, 2000)
+      DoubleClick(937, 580, 3000)
+      DoubleClick(964, 520, 2000)
+      DoubleClick(1025, 549, 3000)
+    }
+
+    ; exit mine
+  SingleClick(513, 495, 10000)
+    ; go to bank
+  SingleClick(788, 178, 29000)
+    ; empty inventory
+  SingleClick(1040, 837, 1000)
+    ; exit bank
+  SingleClick(1086, 81, 1000)
+}
 
 
 ;------------------------------------------------------------------

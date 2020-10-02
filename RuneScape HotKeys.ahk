@@ -96,34 +96,34 @@ global PERSISTENCE_TOGGLE := false
 ;												High Alch Items
 ;--------------------------------------------------------------------------------------------------------------------
 
-global TITLE_MITHRIL_PLATEBODY :=	"mithril platebody"
-global TITLE_MITHRIL_KITESHIELD :=	"mithril kiteshield"
-global TITLE_MITHRIL_2H_SWORD :=	"mithril 2h sword"
-global TITLE_MITHRIL_PICKAXE :=		"mithril pickaxe"
+global TITLE_MITHRIL_PLATEBODY :=	"mithril platebody" ; x125 max num
+global TITLE_MITHRIL_KITESHIELD :=	"mithril kiteshield" ; x125 max num
+global TITLE_MITHRIL_2H_SWORD :=	"mithril 2h sword" ; x125 max num
+global TITLE_MITHRIL_PICKAXE :=		"mithril pickaxe" ; x40 max num
 	global VALUE_MITHRIL_PLATEBODY :=	2876
 	global VALUE_MITHRIL_KITESHIELD :=	1082
 	global VALUE_MITHRIL_2H_SWORD :=	1316
 	global VALUE_MITHRIL_PICKAXE :=		536
 
-global TITLE_ADAMANT_PLATEBODY :=	"adamant platebody"
-global TITLE_ADAMANT_SQ_SHIELD :=	"adamant sq"
-global TITLE_ADAMANT_KITESHIELD :=	"adamant kite"
-global TITLE_ADAMANT_2H_SWORD :=	"adamant 2h"
+global TITLE_ADAMANT_PLATEBODY :=	"adamant platebody" ; x125 max num
+global TITLE_ADAMANT_SQ_SHIELD :=	"adamant sq" ; x125 max num
+global TITLE_ADAMANT_KITESHIELD :=	"adamant kite" ; x125 max num
+global TITLE_ADAMANT_2H_SWORD :=	"adamant 2h" ; x125 max num
 	global VALUE_ADAMANT_PLATEBODY :=	9740
 	global VALUE_ADAMANT_SQ_SHIELD :=	2060
 	global VALUE_ADAMANT_KITESHIELD :=	3020
 	global VALUE_ADAMANT_2H_SWORD :=	3596
 
-global TITLE_RUNE_2H_SWORD :=	"rune 2h"
-global TITLE_RUNE_MED_HELM :=	"rune med"
-global TITLE_RUNE_FULL_HELM :=	"rune full"
-global TITLE_RUNE_CHAINBODY :=	"rune chainbody"
-global TITLE_RUNE_PLATEBODY :=	"rune platebody"
-global TITLE_RUNE_SQ_SHIELD :=	"rune sq"
-global TITLE_RUNE_KITESHIELD :=	"rune kite"
-global TITLE_RUNE_PLATELEGS :=	"rune platelegs"
-global TITLE_RUNE_PLATESKIRT :=	"rune plateskirt"
-global TITLE_RUNE_SCIMITAR :=	"rune scimitar"
+global TITLE_RUNE_2H_SWORD :=	"rune 2h" ; x70 max num
+global TITLE_RUNE_MED_HELM :=	"rune med" ; x70 max num
+global TITLE_RUNE_FULL_HELM :=	"rune full" ; x70 max num
+global TITLE_RUNE_CHAINBODY :=	"rune chainbody" ; x70 max num
+global TITLE_RUNE_PLATEBODY :=	"rune platebody" ; x70 max num
+global TITLE_RUNE_SQ_SHIELD :=	"rune sq" ; x70 max num
+global TITLE_RUNE_KITESHIELD :=	"rune kite" ; x70 max num
+global TITLE_RUNE_PLATELEGS :=	"rune platelegs" ; x70 max num
+global TITLE_RUNE_PLATESKIRT :=	"rune plateskirt" ; x70 max num
+global TITLE_RUNE_SCIMITAR :=	"rune scimitar" ; x70 max num
 	global VALUE_RUNE_2H_SWORD :=	38100
 	global VALUE_RUNE_MED_HELM :=	11200
 	global VALUE_RUNE_FULL_HELM :=	20800
@@ -135,8 +135,13 @@ global TITLE_RUNE_SCIMITAR :=	"rune scimitar"
 	global VALUE_RUNE_PLATESKIRT :=	38050
 	global VALUE_RUNE_SCIMITAR :=	15060
 
-global TITLE_GREEN_DHIDE_BODY :=	"green d'hide body"
+global TITLE_GREEN_DHIDE_BODY :=	"green d'hide body" ; x125 max num
 	global VALUE_GREEN_DHIDE_BODY :=	4400
+global TITLE_STEEL_PLATEBODY :=	"steel platebody" ; x125 max num
+	global VALUE_STEEL_PLATEBODY :=	952
+global TITLE_IRON_PLATEBODY :=	"iron platebody" ; x125 max num
+	global VALUE_IRON_PLATEBODY :=	105
+
 
 ;--------------------------------------------------------------------------------------------------------------------
 ;												ICONS
