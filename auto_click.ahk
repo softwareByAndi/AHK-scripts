@@ -47,12 +47,10 @@ $+!^x::
   MouseGetPos, x, y
   send, {alt down} {tab} {alt up}
   sleep, 1000
-  send, % "Send, "
-  send, % "{{}Click, "
-  send, % x
-  send, % ", "
-  send, % y
-  send, % "{}}"
+
+  send, % "Send, {{}Click, " x ", " y "{}}"
+  send, {enter}
+  send, % "sleep, 1000"
   return
 
 initializeGlobals_Desktop(){
