@@ -28,7 +28,7 @@ reloadScript(){
 		Reload, auto_click.ahk
 }
 
-#p::Pause
+!o::Pause
 
 $!r::
   Send {shift up}
@@ -73,24 +73,25 @@ initializeGlobals_Desktop(){
 :*:ahk mine iron::
   mine_iron()
   return
+
 :*:ahk mine coal::
   mine_coal()
   return
+
 :*:ahk high alch::
   InputBox, numItems, "High Alchemy", "how many items?"
   sleep, 500
 
-  numLoops := numItems / 23
+  numInventory := 25
+  numLoops := numItems / numInventory
   numLoops := Floor(numLoops)
-  remainder := Mod(numItems, 23)
-
-  MsgBox, % numItems " : " numLoops " : " remainder
+  remainder := Mod(numItems, numInventory)
   
   SELECT_FIRST_ITEM_FROM_BANK()
 
   Loop %numLoops% {
       ; high alchemy loop
-    high_alch(23)
+    high_alch(numInventory)
     SELECT_FIRST_ITEM_FROM_BANK()
   }
   
@@ -206,18 +207,18 @@ high_alch(numLoop) {
 
     SELECT_FIRST_ITEM_FROM_BANK() {
         ; open bank
-      Send, {Click, 475, 575} 
+      Send, {Click, 742, 420}
       sleep, 1000
 
       Loop 2 {
           ; select item
-        Send, {Click, 336, 148} 
+        Send, {Click, 527, 125}
         sleep, 1000
       }
 
         ; exit bank
-      Send, {Click, 736, 74}  
-      sleep, 500
+      Send, {Click, 926, 52}
+      sleep, 1000
     }
 
     SELECT_HIGH_ALCH(i_row, i_col) {
