@@ -28,6 +28,8 @@ reloadScript(){
 		Reload, auto_click.ahk
 }
 
+#p::Pause
+
 $!r::
   Send {shift up}
   reloadScript()
@@ -41,12 +43,16 @@ RSClick(rsX, rsY, sleeperTime)
 }
 
 $+!^x::
-  Loop
-  {
-      MouseGetPos, x, y
-      ToolTip, %x% %y%
-  }
-  ToolTip
+
+  MouseGetPos, x, y
+  send, {alt down} {tab} {alt up}
+  sleep, 1000
+  send, % "Send, "
+  send, % "{{}Click, "
+  send, % x
+  send, % ", "
+  send, % y
+  send, % "{}}"
   return
 
 initializeGlobals_Desktop(){
@@ -66,45 +72,37 @@ initializeGlobals_Desktop(){
 ;------------------------------------------------------------------
 ;------------------------------------------------------------------
 
-:*:ahk mine::
-  mine()
+:*:ahk mine iron::
+  mine_iron()
+  return
+:*:ahk mine coal::
+  mine_coal()
+  return
+:*:ahk high alch::
+  InputBox, numItems, "High Alchemy", "how many items?"
+  sleep, 500
+
+  numLoops := numItems / 23
+  numLoops := Floor(numLoops)
+  remainder := Mod(numItems, 23)
+
+  MsgBox, % numItems " : " numLoops " : " remainder
+  
+  SELECT_FIRST_ITEM_FROM_BANK()
+
+  Loop %numLoops% {
+      ; high alchemy loop
+    high_alch(23)
+    SELECT_FIRST_ITEM_FROM_BANK()
+  }
+  
+    ; last loop
+  high_alch(remainder)  
   return
 
-:*:up::
-  click_UP_UP(0)
-  return
-:*:down::
-  click_DOWN(0)
-  return
-:*:right::
-  click_RIGHT_RIGHT(0)
-  return
-:*:left::
-  click_LEFT_LEFT(0)
-  return
-:*:ul::
-  click_UP_UP_LEFT_LEFT(0)
-  return
-:*:ur::
-  click_UP_UP_RIGHT_RIGHT(0)
-  return
 
-
-
-:*:test1::
-  click_DOWN_RIGHT(3000)
-  click_UP_LEFT(3000)
-  click_DOWN_LEFT(3000)
-  click_UP_RIGHT(3000)
-  return
-:*:test2::
-  SELECT_ITEM(1, 1, 200)
-  return
-:*:test3::
-  SELECT_ITEM(1, 1, 200)
-  SELECT_ITEM(2, 2, 200)
-  SELECT_ITEM(4, 3, 200)
-  SELECT_ITEM(7, 3, 200)
+:*:test::
+    Send, {Click, 736, 74}
   return
 
 
@@ -114,20 +112,32 @@ initializeGlobals_Desktop(){
 ;------------------------------------------------------------------
 ;------------------------------------------------------------------
 
-mine() {
-  Loop
+mine_iron() {
+  Loop 12
   {
-    Loop, 4
-    {
-      click_UP(3800)
-      click_RIGHT(3300)
-
-      DROP_ITEM(1,1, 200)
-      DROP_ITEM(1,2, 200)
-    }
+    click_UP(3800)
+    click_RIGHT(3800)
+  }
+}
+mine_coal() {
+  Loop 20
+  {
+    click_DOWN_RIGHT(14000)
+    click_UP_LEFT_LEFT(14000)
+    click_DOWN_LEFT(14000)
   }
 }
 
+high_alch(numLoop) {
+  global
+  ha_iter := -1
+  Loop %numLoop% {
+    ha_iter := ha_iter + 1
+    ha_item_row := Floor(ha_iter / 4) + 1
+    ha_item_col := Mod(ha_iter, 4) + 1
+    SELECT_HIGH_ALCH(ha_item_row, ha_item_col)
+  }
+}
 
 
 
@@ -194,6 +204,46 @@ mine() {
 ;     RS item click functions
 ;------------------------------------------------------------------
 ;------------------------------------------------------------------
+
+
+    SELECT_FIRST_ITEM_FROM_BANK() {
+        ; open bank
+      Send, {Click, 475, 575} 
+      sleep, 1000
+
+      Loop 2 {
+          ; select item
+        Send, {Click, 336, 148} 
+        sleep, 1000
+      }
+
+        ; exit bank
+      Send, {Click, 736, 74}  
+      sleep, 500
+    }
+
+    SELECT_HIGH_ALCH(i_row, i_col) {
+      global
+      ha_row := 3
+      ha_col := 3
+
+      getRSFirstItem()
+      Loop %ha_row% {
+        ITEM_DOWN()
+      }
+      Loop %ha_col% {
+        ITEM_RIGHT()
+      }
+
+      clickX := clickX + 15
+      clickY := clickY - 15
+
+      Send {Click, %clickX%, %clickY%}
+      sleep, 300
+
+      SELECT_ITEM(i_row, i_col, 3000)
+      return
+    }
 
     SELECT_ITEM(row, col, sleeperTime) {
       global
