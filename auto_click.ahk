@@ -51,11 +51,11 @@ $+!^x::
   send, % "Send, {{}Click, " x ", " y "{}}"
   send, {enter}
   send, % "sleep, 1000"
-  send, {enter}
-  send, {enter}
+  ;send, {enter}
+  ;send, {enter}
   sleep, 1000
 
-  send, {alt down} {tab} {alt up}
+  ;send, {alt down} {tab} {alt up}
   return
 
 initializeGlobals_Desktop(){
@@ -87,7 +87,7 @@ initializeGlobals_Desktop(){
   InputBox, numItems, "High Alchemy", "how many items?"
   sleep, 500
 
-  numInventory := 25
+  numInventory := 26
   numLoops := numItems / numInventory
   numLoops := Floor(numLoops)
   remainder := Mod(numItems, numInventory)
@@ -125,8 +125,8 @@ initializeGlobals_Desktop(){
   return
 
 :*:test::
-    SMITH_MEDHELM()
-    GET_INGOTS_FROM_BANK()
+  WinGetPos, posX, posY, width, height, A
+  send, % height ", " width
   return
 
 
@@ -137,10 +137,12 @@ initializeGlobals_Desktop(){
 ;------------------------------------------------------------------
 
 mine_iron() {
-  Loop 12
+  Loop
   {
     click_UP(3800)
     click_RIGHT(3800)
+    DROP_ITEM(1, 1, 200)
+    DROP_ITEM(1, 2, 200)
   }
 }
 mine_coal() {
@@ -238,31 +240,28 @@ varrock_smith_medhelms() {
 
     GET_INGOTS_FROM_BANK(){
         ;open bank
-      Send, {Click, 756, 222}
+      Send, {Click, 764, 249}
       sleep, 5000
 
       SELECT_ITEM(1, 2, 1000)
 
         ;select tab
-      Send, {Click, 759, 87}
-      sleep, 500
+      Send, {Click, 836, 89}
+      sleep, 1000
         ;select ingot
-      Send, {Click, 526, 126}
+      Send, {Click, 530, 130}
       sleep, 1000
         ;exit bank
-      Send, {Click, 926, 49}
+      Send, {Click, 925, 51}
       sleep, 1000
     }
 
     SMITH_MEDHELM() {
         ; anvil
-      Send, {Click, 921, 815}
+      Send, {Click, 916, 766}
       sleep, 5000
-        ; smith all
-      Send, {Click, 919, 443}
-      sleep, 1000
         ; select med helm
-      Send, {Click, 718, 267}
+      Send, {Click, 478, 323}
       sleep, 85000
     }
 
@@ -302,26 +301,26 @@ varrock_smith_medhelms() {
 
 
         ; click backpack icon
-      Send, {Click, 1615, 1037}
-      sleep, 1000
-
-        ; click magic book icon
-      Send, {Click, 1715, 1039}
-      sleep, 1000
-
-        ; click high_alch icon
-      Send {Click, %clickX%, %clickY%}
-      sleep, 300
-
-      SELECT_ITEM(i_row, i_col, 500)
-
-        ; first confirmation
-      Send, {Click, 308, 1004}
+      Send, {Click, 1296, 859}
       sleep, 500
 
+        ; click magic book icon
+      Send, {Click, 1393, 856}
+      sleep, 500
+
+        ; click high_alch icon
+      Send, {Click, 1587, 696}
+      sleep, 300
+
+      SELECT_ITEM(i_row, i_col, 1000)
+
+        ; first confirmation
+      ;Send, {Click, 326, 823}
+      ;sleep, 1000
+
         ; second confirmation
-      Send, {Click, 312, 959}
-      sleep, 2000
+      ;Send, {Click, 267, 779}
+      sleep, 1000
 
       return
     }
