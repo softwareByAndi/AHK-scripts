@@ -52,6 +52,8 @@ $+!^x::
   send, {enter}
   send, % "sleep, 1000"
   send, {enter}
+  send, {enter}
+
   sleep, 1000
 
   send, {alt down} {tab} {alt up}
@@ -236,37 +238,33 @@ varrock_smith_medhelms() {
 ;------------------------------------------------------------------
 
     GET_INGOTS_FROM_BANK(){
-        ; open bank
-      Send, {Click, 911, 294}
+        ;open bank
+      Send, {Click, 756, 222}
       sleep, 5000
 
       SELECT_ITEM(1, 2, 1000)
 
-        ; select tab
-      Send, {Click, 923, 116}
+        ;select tab
+      Send, {Click, 759, 87}
       sleep, 500
-
-        ; select ingot
-      Send, {Click, 687, 155}
+        ;select ingot
+      Send, {Click, 526, 126}
       sleep, 1000
-
-        ; exit bank
-      Send, {Click, 1085, 81}
+        ;exit bank
+      Send, {Click, 926, 49}
       sleep, 1000
     }
 
     SMITH_MEDHELM() {
-        ; select anvil
-      Send, {Click, 1097, 917}
+        ; anvil
+      Send, {Click, 921, 815}
       sleep, 5000
-
-        ; select medhelm
-      Send, {Click, 879, 355}
+        ; smith all
+      Send, {Click, 919, 443}
+      sleep, 1000
+        ; select med helm
+      Send, {Click, 718, 267}
       sleep, 85000
-
-      ; ----------------------------
-
-      
     }
 
     SELECT_FIRST_ITEM_FROM_BANK() {
