@@ -46,6 +46,12 @@ SingleClick(rsX, rsY, sleeperTime)
 	sleep, %sleeperTime%
 }
 
+RightClick(rsX, rsY, sleeperTime)
+{
+	Send {Click, right, %rsX%, %rsY%}
+	sleep, %sleeperTime%
+}
+
 DoubleClick(rsX, rsY, sleeperTime) {
 	Send {Click, %rsX%, %rsY%}
   sleep, 250
@@ -58,6 +64,7 @@ $+!^x::
   MouseGetPos, x, y
   send, {alt down} {tab} {alt up}
   sleep, 1000
+
 
   send, % "SingleClick(" x ", " y ", 1000)"
   send, {enter}
@@ -75,7 +82,48 @@ initializeGlobals_Desktop(){
   return
 }
 
+; $^LButton::
+;   MouseGetPos, x, y
+;   send, {ctrl up}{alt down} {tab} {alt up}
+;   sleep, 500
 
+;   send, % "SingleClick(" x ", " y ", 500)"
+;   sleep, 250
+;   ; MsgBox, "click recorded"
+;   ; sleep, 250
+;   send, {enter}
+;   sleep, 250
+
+;   send, {alt down} {tab} {alt up}
+;   sleep, 250
+;   send, {Click}
+;   return
+  
+; $^RButton::
+;   MouseGetPos, x, y
+;   send, {ctrl up}{alt down}{tab}{alt up}
+;   sleep, 500
+
+;   send, % "RightClick(" x ", " y ", 500)"
+;   sleep, 250
+;   ; MsgBox, "click recorded"
+;   ; sleep, 250
+;   send, {enter}
+;   sleep, 250
+
+;   send, {alt down}{tab}{alt up}
+;   sleep, 250
+;   send, {Click, right}
+;   return
+
+
+
+;---------------------------------------------
+
+
+
+
+;---------------------------------------------
 
 ;------------------------------------------------------------------
 ;------------------------------------------------------------------
@@ -142,10 +190,97 @@ initializeGlobals_Desktop(){
   }
   return
 
+:*:ahk fill potions::
+  InputBox, numItems, "smith iron", "how many items?"
+  sleep, 500
+
+  numInventory := 28
+  numLoops := numItems / numInventory
+  numLoops := Floor(numLoops)
+
+  Loop %numLoops% {
+    ; bank
+    DoubleClick(1022, 513, 2000)
+    SingleClick(1045, 833, 1000)
+    SingleClick(735, 227, 1000)
+    SingleClick(1087, 78, 500)
+
+    ; combine potions
+    RightClick(1805, 783, 250)
+    SingleClick(1738, 824, 250)
+    SingleClick(1762, 782, 500)
+    RightClick(1845, 783, 250)
+    SingleClick(1780, 826, 250)
+    SingleClick(1760, 781, 500)
+    RightClick(1889, 783, 250)
+    SingleClick(1782, 823, 250)
+    SingleClick(1762, 780, 500)
+
+    RightClick(1803, 820, 250)
+    SingleClick(1741, 861, 250)
+    SingleClick(1764, 818, 500)
+    RightClick(1846, 819, 250)
+    SingleClick(1777, 859, 250)
+    SingleClick(1762, 819, 500)
+    RightClick(1886, 819, 250)
+    SingleClick(1771, 860, 250)
+    SingleClick(1759, 819, 500)
+
+    RightClick(1804, 856, 250)
+    SingleClick(1743, 901, 250)
+    SingleClick(1762, 858, 500)
+    RightClick(1847, 854, 250)
+    SingleClick(1787, 899, 250)
+    SingleClick(1763, 854, 500)
+    RightClick(1888, 854, 250)
+    SingleClick(1771, 898, 250)
+    SingleClick(1763, 857, 500)
+
+    RightClick(1805, 889, 250)
+    SingleClick(1744, 930, 250)
+    SingleClick(1764, 890, 500)
+    RightClick(1848, 891, 250)
+    SingleClick(1771, 934, 250)
+    SingleClick(1764, 890, 500)
+    RightClick(1886, 893, 250)
+    SingleClick(1778, 934, 250)
+    SingleClick(1763, 892, 500)
+
+    RightClick(1806, 925, 250)
+    SingleClick(1744, 968, 250)
+    SingleClick(1762, 926, 500)
+    RightClick(1847, 923, 250)
+    SingleClick(1779, 965, 250)
+    SingleClick(1762, 925, 500)
+    RightClick(1888, 925, 250)
+    SingleClick(1779, 966, 250)
+    SingleClick(1763, 928, 500)
+
+    RightClick(1805, 961, 250)
+    SingleClick(1751, 989, 250)
+    SingleClick(1765, 962, 500)
+    RightClick(1847, 962, 250)
+    SingleClick(1794, 990, 250)
+    SingleClick(1762, 962, 500)
+    RightClick(1888, 964, 250)
+    SingleClick(1788, 990, 250)
+    SingleClick(1759, 961, 500)
+
+    RightClick(1804, 1000, 250)
+    SingleClick(1753, 986, 250)
+    SingleClick(1765, 999, 500)
+    RightClick(1849, 1000, 250)
+    SingleClick(1783, 989, 250)
+    SingleClick(1762, 995, 500)
+    RightClick(1886, 1000, 250)
+    SingleClick(1770, 987, 250)
+    SingleClick(1761, 999, 500)
+  }
+  return
 
 :*:test::
-  WinGetPos, posX, posY, width, height, A
-  send, % height ", " width
+  WinGetTitle, mytitle, A_ScriptDir
+  MsgBox, "the active window is " %mytitle%
   return
 
 :*:align_1::
@@ -354,7 +489,7 @@ mining_guild_iron() {
     SELECT_FIRST_ITEM_FROM_BANK() {
         ; open bank
       Send, {Click, 742, 420}
-      sleep, 1000
+      sleep, 2000
 
       Loop 2 {
           ; select item
