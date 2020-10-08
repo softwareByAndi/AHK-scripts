@@ -334,6 +334,7 @@ initRSWindow() {
 
 	;msgbox, % "rs win: " . RS_WIN_1
 }
+
 findRSWindow() {
 	if WinExist("ahk_id " . RS_WIN_1)	{
 		WinGetPos, SCREEN_X1, SCREEN_Y1, w, h, ahk_id %RS_WIN_1%

@@ -121,7 +121,9 @@ return
 $!s::
     enableSQLShortcuts()
 return
-
+$!r::
+    run record_action.exe
+return
 
 :*:ahk_enable(sql)::
     enableSQLShortcuts()
