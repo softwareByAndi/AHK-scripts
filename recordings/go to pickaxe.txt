@@ -1,0 +1,5 @@
+[605, 336, LEFT, -1, 500, -1] (close armour)
+[605, 354, LEFT, -1, 500, -1] (close weapons)
+[618, 372, LEFT, -1, 500, -1] (close off hand weapons)
+[623, 396, LEFT, -1, 500, -1] (close ranged)
+[539, 454, LEFT, -1, 500, -1] (misc 3) (rune pickaxe)

@@ -1,0 +1,3 @@
+[544, 495, LEFT, -1, 1000, -1] (top)
+[218, 745, LEFT, -1, 500, -1] (smith button backpack)
+[772, 742, LEFT, -1, 60000, -1] (smith button begin project)

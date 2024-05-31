@@ -1,0 +1,57 @@
+[218, 745, LEFT, -1, 500, -1] (smith button backpack)
+[772, 742, LEFT, -1, 1500, -1] (smith button begin project)
+
+[680, 379, LEFT, -1, 500, -1] (smith button base)
+[725, 379, LEFT, -1, 500, -1] (smith button plus 1)
+[758, 379, LEFT, -1, 500, -1] (smith button plus 2)
+[790, 379, LEFT, -1, 500, -1] (smith button plus 3)
+
+[605, 336, LEFT, -1, 500, -1] (close armour)
+[605, 354, LEFT, -1, 500, -1] (close weapons)
+[618, 372, LEFT, -1, 500, -1] (close off hand weapons)
+[623, 396, LEFT, -1, 500, -1] (close ranged)
+
+(__________________)
+
+[189, 373, LEFT, -1, 500, -1] (smith button 1 1 1)
+[242, 374, LEFT, -1, 500, -1] (smith button 1 1 2)
+[290, 376, LEFT, -1, 500, -1] (smith button 1 1 3)
+[339, 370, LEFT, -1, 500, -1] (smith button 1 1 4)
+
+[189, 422, LEFT, -1, 500, -1]  (smith button 1 2 1) (adamantite)
+[237, 422, LEFT, -1, 500, -1]  (smith button 1 2 2)
+[286, 420, LEFT, -1, 500, -1] (smith button 1 2 3)
+[340, 420, LEFT, -1, 500, -1]  (smith button 1 2 4)
+
+[186, 474, LEFT, -1, 500, -1]  (smith button 1 3 1)
+[237, 471, LEFT, -1, 500, -1]  (smith button 1 3 2)
+[294, 473, LEFT, -1, 500, -1]  (smith button 1 3 3)
+[336, 473, LEFT, -1, 500, -1] (smith button 1 3 4)
+
+[189, 525, LEFT, -1, 500, -1]  (smith button 1 4 1)
+[236, 526, LEFT, -1, 500, -1]  (smith button 1 4 2)
+[285, 530, LEFT, -1, 500, -1] (smith button 1 4 3)
+[339, 528, LEFT, -1, 500, -1] (smith button 1 4 4)
+
+[187, 577, LEFT, -1, 500, -1] (smith button 1 5 1)
+
+(_________________)
+
+[438, 376, LEFT, -1, 500, -1] (smith button 2 1 1) (full helm)
+[490, 374, LEFT, -1, 500, -1] (smith button 2 1 2)
+[538, 374, LEFT, -1, 500, -1] (smith button 2 1 3) (plate legs)
+[592, 377, LEFT, -1, 500, -1] (smith button 2 1 4)
+
+[431, 424, LEFT, -1, 500, -1] (smith button 2 2 1) (plate armor)
+[490, 425, LEFT, -1, 500, -1] (smith button 2 2 2)
+[539, 424, LEFT, -1, 500, -1] (smith button 2 2 3)
+[589, 424, LEFT, -1, 500, -1] (smith button 2 2 4) (kite shield)
+
+[435, 478, LEFT, -1, 500, -1] (smith button 2 3 1) (boots)
+[487, 472, LEFT, -1, 500, -1] (smith button 2 3 2) (gloves)
+
+(_________________________________)
+
+[436, 652, LEFT, -1, 500, -1] (weapons 3 1) (2H)
+
+[539, 454, LEFT, -1, 500, -1] (misc 3) (rune pickaxe)

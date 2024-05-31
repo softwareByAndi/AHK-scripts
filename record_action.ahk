@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -58,7 +58,7 @@ write(text) {
 }
 initWindow(verbose) {
 	WinGet, WIN_1, ID, A
-  if (verbose)
+  if (verbose)ff
     alert("win: " . WIN_1)
 }
 exitActiveWindow(){
@@ -91,21 +91,25 @@ $!r::
 
 $LButton::
   send, {Click}
-  recordClick("Left", false)
+  recordClick("Left", -1)
   return
 $^LButton::
   ; KeyWait, Control
+  MouseGetPos, x, y
+  PixelGetColor, c, x, y, RGB
   send, {Click}
-  recordClick("Left", true)
+  recordClick("Left", c)
   return
 $RButton::
   send, {Click, right}
-  recordClick("Right", false)
+  recordClick("Right", -1)
   return
 $^RButton::
+  MouseGetPos, x, y
+  PixelGetColor, c, x, y, RGB
   ; KeyWait, Control
   send, {Click, right}
-  recordClick("Right", true)
+  recordClick("Right", c)
   return
 
 :*:record::
@@ -151,7 +155,7 @@ replay() {
 
 
 
-recordClick(clickButton="Left", pixelColor=false){
+recordClick(clickButton="Left", pixelColor=-1){
   if (recording_bool) {
     MouseGetPos, x, y
     
@@ -163,11 +167,7 @@ recordClick(clickButton="Left", pixelColor=false){
     clickArray_X.Push(x)
     clickArray_Y.Push(y)
     clickArray_TimeLog.Push(A_TickCount)
-    c := -1
-    if (pixelColor) {
-      PixelGetColor, c, x, y, RGB
-    }
-    clickArray_Color.Push(c)
+    clickArray_Color.Push(pixelColor)
 
     if (clickButton="Right"){
       clickArray_Button.Push("RIGHT")
@@ -457,6 +457,7 @@ load_recording() {
     if (Count = 0)
       break
   }
+  file := RegExReplace(file, "\s*\([\w\s]*\)\s*", "")
   file := StrReplace(file, A_Space)
   instructions := StrSplit(file, "][")
   for index, element in instructions {

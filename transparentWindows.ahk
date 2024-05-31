@@ -1,4 +1,4 @@
-﻿#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+﻿; #NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ; #Warn  ; Enable warnings to assist with detecting common errors.
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -6,8 +6,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #InstallKeybdHook
 #InstallMouseHook
 
-
-run auto_load_programs.ahk
 
 
 winID := 0
@@ -145,6 +143,10 @@ getWinClass() {
 :*:ahk_GetWinClass::
 	getWinClass()
 Return
+
+!+^u::
+    getWinClass()
+return
 
 
 :*:ahk_projectPrologueTemplate()::
@@ -428,8 +430,12 @@ return
 $!-::
 	send, –
 return
+
 :*:approx*::
 	send, ≈
+return
+:*:degC*::
+	send, °C
 return
 :*:theta*::
 	send, {backspace}θ
@@ -442,6 +448,9 @@ return
 return
 :*:eta*::
 	send, {backspace}η
+return
+:*:degF*::
+	send, °F
 return
 :*:xi*::
 	send, {backspace}ξ
@@ -457,6 +466,9 @@ return
 return
 :*:sigma!*::
 	send, {backspace}Σ
+return
+:*:degree*::
+	send, {backspace}°
 return
 :*:delta*::
 	send, {backspace}δ

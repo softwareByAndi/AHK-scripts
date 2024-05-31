@@ -1,1 +1,8 @@
 [1006/182828.808:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
+[1012/015708.254:ERROR:process_info.cc(359)] UncheckedAllocate
+[1014/185124.841:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1014/191327.220:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/205946.760:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Leonidas Emilio Arai\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\c7550911-bec1-433c-8fd3-6de095742faa: The system cannot find the path specified. (0x3)
+[1015/205947.091:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/170736.681:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1018/215606.106:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
