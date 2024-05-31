@@ -81,6 +81,7 @@ global GLOBAL_TIME_OUT := 48
 
 global PERSISTENCE_TOGGLE := false
 
+global MY_PASSWORD := "my password"
 
 
 
@@ -155,38 +156,38 @@ global Click_Y := 0
 ;												ICONS _ LOGIN
 ;--------------------------------------------------------------------------------------------------------------------
 
-global LOGIN_EXISTING_USER := 					"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0000_Login-Existing-User.png"
-global LOGIN_CLICK_TO_SWITCH_WORLDS :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0002_Login-Click-to-switch-World.png"
-global LOGIN_VERIFY_PASSWORD_IS_ENTERED :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0003_Login-Password-Entered.png"
-global LOGIN_BUTTON :=							"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0004_Login-Button.png"
-global LOGIN_CLICK_HERE_TO_PLAY :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0006_Login-Click-Here-To-Play.png"
-global LOGIN_MUSIC_ICON :=						"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0001_Login-Music-On.png"
-global LOGIN_LOGO :=							"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0005_Login-Logo.png"
-global LOGIN_SELECT_WORLD :=					"E:\Documents\2019\OSRS Icons\_World 379.png"
+global LOGIN_EXISTING_USER :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0000_Login-Existing-User.png"
+global LOGIN_CLICK_TO_SWITCH_WORLDS :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0002_Login-Click-to-switch-World.png"
+global LOGIN_VERIFY_PASSWORD_IS_ENTERED :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0003_Login-Password-Entered.png"
+global LOGIN_BUTTON :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0004_Login-Button.png"
+global LOGIN_CLICK_HERE_TO_PLAY :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0006_Login-Click-Here-To-Play.png"
+global LOGIN_MUSIC_ICON :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0001_Login-Music-On.png"
+global LOGIN_LOGO :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0002s_0005_Login-Logo.png"
+global LOGIN_SELECT_WORLD :=			"E:\Documents\2019\OSRS Icons\_World 379.png"
 
 
-global COMPASS :=								"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0005s_0000_Compass.png"
-global ZOOM_ICON :=								"E:\Documents\2019\OSRS Icons\_Zoom Icon.png"
+global COMPASS :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0005s_0000_Compass.png"
+global ZOOM_ICON :=				"E:\Documents\2019\OSRS Icons\_Zoom Icon.png"
 
 ;--------------------------------------------------------------------------------------------------------------------
 ;												ICONS _ GE
 ;--------------------------------------------------------------------------------------------------------------------
 
-global GE_TITLE_ICON := 			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0003_GE-Title.png"
-global GE_EMPTY_SLOT := 			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0000_Empty-GE-Box.png"
+global GE_TITLE_ICON :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0003_GE-Title.png"
+global GE_EMPTY_SLOT :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0000_Empty-GE-Box.png"
 global GE_BLANK_SLOT :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0018_GE-BLANK-Box.png"
 global GE_GREEN_SLOT :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0016_GE-COMPLETED-Box.png"
 global GE_NOT_SOLD_SLOT :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0017_GE-INCOMPLETE-Box.png"
 global GE_SELL_ICON :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0001_GE-Empty-Sell-Tab.png"
 global GE_BUY_ICON :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0002_GE-Empty-Buy-Tab.png"
 global GE_EXIT_BUTTON :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0006_GE-Close-Button.png"
-global GE_ABORT_OFFER_BUTTON :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0008_GE-Abort-Offer-Icon.png"
+global GE_ABORT_OFFER_BUTTON :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0008_GE-Abort-Offer-Icon.png"
 global GE_COLLECT_BUTTON :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0007_GE-Collect-Icon.png"
-global GE_EMPTY_RETURN_BOX :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0009_GE-Empty-Return-Icon.png"
-global GE_OFFER_RETURN_BUTTON :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0015_GE-Offer-Return-Button.png"
+global GE_EMPTY_RETURN_BOX :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0009_GE-Empty-Return-Icon.png"
+global GE_OFFER_RETURN_BUTTON :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0015_GE-Offer-Return-Button.png"
 global GE_CONFIRM :=				"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0014_GE-Confirm-Offer-Button.png"
 global GE_PRICE_SET_PAGE :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0010_GE-Price-to-pay.png"
-global GE_PRICE_SET_BUTTON :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0013_GE-Set-Price-Button.png"
+global GE_PRICE_SET_BUTTON :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0013_GE-Set-Price-Button.png"
 global GE_NUM_SET_PAGE :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0011_GE-How-many-to-buy.png"
 global GE_NUM_SET_BUTTON :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0000s_0012_GE-Set-Quantity-Button.png"
 global GE_WHAT_SET_PAGE :=			"E:\Documents\2019\OSRS Icons\_GE_what_to_buy_prompt.png"
@@ -199,14 +200,14 @@ global TAB_COMBAT :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0006_
 global TAB_BACKPACK :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0007_Backpack-Tab-Icon.png"
 global TAB_EQUIPMENT :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0008_Equipment-Tab-Icon.png"
 global TAB_PRAYER :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0009_Prayer-Tab-Icon.png"
-global TAB_MAGIC :=			"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0010_Magic-Tab-Icon.png"
+global TAB_MAGIC :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0010_Magic-Tab-Icon.png"
 global TAB_SETTINGS :=		"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0001s_0011_Settings-Tab-Icon.png"
 
 
 ;--------------------------------------------------------------------------------------------------------------------
 ;												ICONS _ BACKPACK
 ;--------------------------------------------------------------------------------------------------------------------
-global FRAME_BACKPACK := 	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0003s_0000_Backpack.png"
+global FRAME_BACKPACK :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0003s_0000_Backpack.png"
 
 global ITEM_NATURE_RUNE :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0003s_0001_Backpack-Nature-Rune.png"
 
@@ -214,7 +215,7 @@ global ITEM_NATURE_RUNE :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0003s_
 ;												ICONS _ MAGIC
 ;--------------------------------------------------------------------------------------------------------------------
 
-global SPELL_HIGH_ALCH := 	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0006s_0013_spell-high-alchemy.png"
+global SPELL_HIGH_ALCH :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Search_0006s_0013_spell-high-alchemy.png"
 
 
 ;--------------------------------------------------------------------------------------------------------------------
@@ -226,7 +227,7 @@ global PROMPT_H_ALCH_1_CONTINUE :=	"E:\Documents\2019\OSRS Icons\OSRS-Icon-Searc
 global PROMPT_H_ALCH_2_CONTINUE :=	"E:\Documents\2019\OSRS Icons\_High_alchemy_prompt_2_confirm.png"
 global PROMPT_H_ALCH_2_CANCEL :=	"E:\Documents\2019\OSRS Icons\_High_alchemy_prompt_2_cancel.png"
 
-global PROMPT_MINING_FULL 	:= 		"E:\Documents\2019\OSRS Icons\_RS_PROMPT_MINING_FULL.png"
+global PROMPT_MINING_FULL :=		"E:\Documents\2019\OSRS Icons\_RS_PROMPT_MINING_FULL.png"
 
 
 ;--------------------------------------------------------------------------------------------------------------------
@@ -1055,7 +1056,11 @@ RSLogin(){
 			if clickIcon(LOGIN_CLICK_TO_SWITCH_WORLDS) {
 				if clickIcon(LOGIN_SELECT_WORLD){
 					if waitFor_Icon_Verbose(LOGIN_LOGO) {
+<<<<<<< HEAD
 						RSInputClick( , , 100, "Ritakeykos0", 0)
+=======
+						RSInputClick( , , 100, MY_PASSWORD, 0)
+>>>>>>> origin/main
 						if clickIcon(LOGIN_CLICK_HERE_TO_PLAY, 4000) {
 							return ExitFunction(true)
 						}

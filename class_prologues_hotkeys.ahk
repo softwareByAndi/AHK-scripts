@@ -3,31 +3,18 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #SingleInstance force
-    
+
+
 
 run, class_prologues_tooltip.exe
 
 outputDate(){
-    FormatTime, currentDateTime,, dd MMM yyyy
-        sendinput %currentDateTime% {enter}
+  FormatTime, currentDateTime,, dd MMM yyyy
+  sendinput %currentDateTime% {enter}
 }
 
 :*:comm::
     send, COMM 2110 – X01 : Interpersonal Communication {enter}
-    send, Andrew Ahlstrom {enter}
-    outputDate()
-return
-
-:*:ethics::
-:*:cs305::
-    send, CS 305G – 001 : Global, Social & Ethical Issues in Computer Science {enter}
-    send, Andrew Ahlstrom {enter}
-    outputDate()
-return
-
-:*:senior review::
-:*:cs496::
-    send, CS 496R – 001 : Senior Review {enter}
     send, Andrew Ahlstrom {enter}
     outputDate()
 return
@@ -39,6 +26,25 @@ return
     outputDate()
 return
 
+:*:ethics::
+:*:cs305::
+    send, CS 305G – 001 : Global, Social & Ethical Issues in Computer Science {enter}
+    send, Andrew Ahlstrom {enter}
+    outputDate()
+return
+
+:*:CS3410::
+    send, CS 3410 Human Factors in Software Development {enter}
+    send, Andrew Ahlstrom {enter}
+    outputDate()
+return
+
+:*:CS4230::
+    send, CS 4230 Software Testing and Quality Engineering {enter}
+    send, Andrew Ahlstrom {enter}
+    outputDate()
+return
+
 :*:architecture::
 :*:cs4380::
     send, CS 4380 – 001 : Advanced High Performance Computer Architecture {enter}
@@ -46,9 +52,28 @@ return
     outputDate()
 return
 
+:*:CS4400::
+    send, CS 4400 Software Engineering II {enter}
+    send, Andrew Ahlstrom {enter}
+    outputDate()
+return
+
+:*:CS4450::
+    send, CS 4450 Analysis of Programming Languages {enter}
+    send, Andrew Ahlstrom {enter}
+    outputDate()
+return
+
 :*:software engineering::
 :*:cs4550::
     send, CS 4550 – 001 : Software Engineering III {enter}
+    send, Andrew Ahlstrom {enter}
+    outputDate()
+return
+
+:*:senior review::
+:*:cs496::
+    send, CS 496R – 001 : Senior Review {enter}
     send, Andrew Ahlstrom {enter}
     outputDate()
 return

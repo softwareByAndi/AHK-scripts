@@ -58,7 +58,7 @@ write(text) {
 }
 initWindow(verbose) {
 	WinGet, WIN_1, ID, A
-  if (verbose)ff
+  if (verbose)
     alert("win: " . WIN_1)
 }
 exitActiveWindow(){
@@ -457,8 +457,9 @@ load_recording() {
     if (Count = 0)
       break
   }
+
   file := RegExReplace(file, "\s*\([\w\s]*\)\s*", "")
-  file := StrReplace(file, A_Space)
+  file := StrReplace(file, A_Space) ; FIXME : is this supposed to be here?
   instructions := StrSplit(file, "][")
   for index, element in instructions {
     instructions[index] := StrReplace(instructions[index], "[")

@@ -7,7 +7,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 #InstallMouseHook
 
 
-
 winID := 0
 winID_2 := 0
 winT := 255
@@ -147,7 +146,6 @@ Return
 !+^u::
     getWinClass()
 return
-
 
 :*:ahk_projectPrologueTemplate()::
 	send, /*{enter} * Project Prologue {enter}* Name: Andrew Ahlstrom {enter}* CS3450 section 001 {enter}* Project: __EMPTY__{enter}* Date: __DAY__.__MONTH__.2020 {enter}* {enter}* Purpose: __EMPTY__ {enter}* {enter}*/{enter}
@@ -430,7 +428,6 @@ return
 $!-::
 	send, –
 return
-
 :*:approx*::
 	send, ≈
 return
